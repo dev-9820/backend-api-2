@@ -9,7 +9,7 @@ cors = CORS(app, resources={r'/customers':{'origins': '*'}})
 client = MongoClient("mongodb+srv://db_user_read:LdmrVA5EDEv4z3Wr@cluster0.n10ox.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 db = client.RQ_Analytics
 
-@app.route('/customers', methods=['GET'])
+@app.route('/', methods=['GET'])
 def get_data():
     data = list(db.shopifyCustomers.find({}, {'_id': 0}))
     return jsonify(data)
